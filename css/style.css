@@ -88,6 +88,41 @@ body {
     display: none;
 }
 
+/* Navbar search form */
+.navbar .search-form {
+    position: absolute;
+    top: 100%;
+    right: 7%;
+    background-color: #fff;
+    width: 50rem;
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: 0.3s;
+}
+
+.navbar .search-form.active {
+    transform: scaleY(1);
+}
+
+.navbar .search-form input {
+    height: 100%;
+    width: 100%;
+    font-size: 1.6rem;
+    color: var(--bg);
+    padding: 1rem;
+}
+
+.navbar .search-form label {
+    cursor: pointer;
+    font-size: 2rem;
+    margin-right: 1.5rem;
+    color: var(--bg);
+}
+
+
 /* hero section */
 .hero {
     min-height: 100vh;
@@ -98,9 +133,10 @@ body {
     background-size: cover;
     background-position: center;
     position: relative;
+    mask-image: linear-gradient(rgba(0, 0, 0, 1)85%, rgba(0, 0, 0, 0));
 }
 
-.hero::after {
+/* .hero::after {
     content: '';
     display: block;
     position: absolute;
@@ -109,11 +145,15 @@ body {
     bottom: 0;
     background: linear-gradient(0deg, rgba(1, 1, 3, 1)8%, rgba(255, 255, 255, 0)50%);
 
-}
+} */
 
 .hero .content {
     padding: 1.4rem 7%;
-    max-width: 60rem;
+    /* max-width: 60rem; */
+    width: 100%;
+    text-align: center;
+    position: fixed;
+    top: 150px;
 }
 
 .hero .content h1 {
@@ -152,12 +192,14 @@ body {
 /* about */
 .about,
 .menu,
+.products,
 .contact {
     padding: 8rem 7% 1.4rem;
 }
 
 .about h2,
 .menu h2,
+.products h2,
 .contact h2 {
     text-align: center;
     font-size: 2.6rem;
@@ -165,7 +207,7 @@ body {
 }
 
 .about h2 span,
-
+.products h2 span,
 .menu h2 span,
 .contact h2 span {
     color: var(--primary);
@@ -183,6 +225,7 @@ body {
 
 .about .row .about-img img {
     width: 100%;
+    mask-image: url(../img/tekno.svg);
 }
 
 .about .row .content {
@@ -240,6 +283,39 @@ body {
     margin-top: 1rem auto 0.5rem;
 }
 
+/* products */
+.products .row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 1.5ren;
+    margin-top: 4rem;
+}
+
+.products .products-card {
+    border: 1px solid #666;
+    text-align: center;
+    padding: 2rem;
+}
+
+.products .products-icons {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+
+}
+
+.products .products-icons a {
+    width: 4rem;
+    height: 4rem;
+    color: #fff;
+    margin: 0.3rem;
+    border: 1px solid #666;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .contact .row {
     display: flex;
     margin-top: 2rem;
@@ -292,7 +368,7 @@ body {
 
 /* footer */
 footer {
-    background-color: #434896;
+    background-color: var(--primary);
     text-align: center;
     padding: 1rem 3rem;
     margin-top: 3rem;
@@ -372,6 +448,11 @@ footer .credit a {
 
     .navbar .navbar-nav a:hover::after {
         transform: scaleX(0.2);
+    }
+
+    .navbar .search-form {
+        width: 90%;
+        right: 2rem;
     }
 
     .about .row {
